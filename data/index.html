@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Smart RGB Strip</h1>
+        </div>
+        <p>&copy; 2024 Georgescu Gabriel</p>
+
+        <!-- Color Selector -->
+        <input type="color" id="color-picker" style="width: 200px; height: 60px;" value="#000000" /><br><br>
+        <a class="btn btn-primary btn-lg" onclick="update()" href="#" id="change_color" role="button">Apply Color</a>
+        <a class="btn btn-primary btn-lg" style="background-color: red;" onclick="toggle_power()" href="#" id="power_btn" role="button">ON/OFF</a>
+
+        <!-- Preset Colors -->
+        <br><br>
+        <h3>Color Presets</h3>
+        <div class="grid-container">
+            <button class="color-button" onclick="set_color(255, 0, 0)"
+                style="background-color: #ff0000;"><span>Red</span></button>
+            <button class="color-button" onclick="set_color(0, 255, 0)"
+                style="background-color: #00ff00;"><span>Green</span></button>
+            <button class="color-button" onclick="set_color(0, 0, 255)"
+                style="background-color: #0000ff;"><span>Blue</span></button>
+            <button class="color-button" onclick="set_color(255, 255, 0)"
+                style="background-color: #ffff00;"><span>Yellow</span></button>
+            <button class="color-button" onclick="set_color(0, 255, 255)"
+                style="background-color: #00ffff;"><span>Cyan</span></button>
+            <button class="color-button" onclick="set_color(255, 0, 255)"
+                style="background-color: #ff00ff;"><span>Magenta</span></button>
+            <button class="color-button" onclick="set_color(255, 165, 0)"
+                style="background-color: #ffa500;"><span>Orange</span></button>
+            <button class="color-button" onclick="set_color(128, 0, 128)"
+                style="background-color: #800080;"><span>Purple</span></button>
+            <button class="color-button" onclick="set_color(255, 192, 203)"
+                style="background-color: #ffc0cb;"><span>Pink</span></button>
+            <button class="color-button" onclick="set_color(255, 255, 255)"
+                style="background-color: #ffffff; color: black;"><span>White</span></button>
+        </div>
+
+       
+        <div style="display: none;"> 
+            <input class="setting" type="radio" name="pattern_color_sett" value="keep_color" id="keep_color" %KEEP_CURRENT_COLOR_TRUE%>
+            <label for="keep_color">Keep selected color</label>&nbsp;&nbsp;&nbsp;
+            <input class="setting" type="radio" name="pattern_color_sett" value="rainbow" id="random_color" %RANDOM_COLOR_TRUE%>
+            <label for="rainbow">Random colors</label><br>
+        </div>
+        <div style="display:none;" class="grid-container">
+            <button class="pattern-button" onclick="set_mode(1)" style="background-color: #ffffff; color: black;">Slow
+                Flash</button>
+            <button class="pattern-button" onclick="set_mode(2)" style="background-color: #ffffff; color: black;">Quick
+                Flash</button>
+            <button class="pattern-button" onclick="set_mode(3)"
+                style="background-color: #ffffff; color: black;">Breathing Mode</button>
+            <button class="pattern-button" onclick="set_mode(4)" style="background-color: #ffffff; color: black;">Combo
+                Flash</button>
+            <button class="pattern-button" onclick="set_mode(5)"
+                style="background-color: #ffffff; color: black;">All</button>
+        </div>
+        <div style="display:none;" class="grid-container">
+            <button class="pattern-button" onclick="set_mode(6)" style="background-color: #ffffff; color: black;">XMAS
+                vibe</button>
+            <button class="pattern-button" onclick="set_mode(7)"
+                style="background-color: #ffffff; color: black;">Sunshine</button>
+            <button class="pattern-button" onclick="set_mode(8)"
+                style="background-color: #ffffff; color: black;">Forest</button>
+            <button class="pattern-button" onclick="set_mode(9)"
+                style="background-color: #ffffff; color: black;">Nuclear Fallout</button>
+            <button class="pattern-button" onclick="set_mode(10)"
+                style="background-color: #ffffff; color: black;">All</button>
+        </div>
+
+        <button style="display:none;" id="static_btn" class="pattern-button" onclick="set_mode(0)">Static</button>
+
+        <br><br><br>
+        <h3>Settings</h3>
+        <div class="config-container">
+            <input class="setting" type="checkbox" id="motion_detect" name="motion_detect" %MOTION_DETECT_CHECKED%>
+            <label for="motion_detect">Turn on automatically when motion is detected</label><br>
+            <label for="timeout_s">Timeout (max. 300s):</label>
+            <input type="number" id="timeout_s" name="timeout_s" min="0" max="300" value="%TIMEOUT_VAL%"> <button onclick="update_timeout()" id="timeout_btn">Apply</button><br><br>
+
+            <input class="setting" type="checkbox" id="light_detect" name="light_detect" %AUTO_OFF_CHECKED%>
+            <label for="light_detect">Turn off automatically when room is dark</label><br><br>
+
+            <input class="setting" type="checkbox" id="auto_brightness" name="auto_brightness" %AUTO_BRIGHT_CHECKED%>
+            <label for="auto_brightness">Auto-adjust brightness based on ambient light</label><br><br>
+
+            <input style="display: none;" class="setting" type="checkbox" id="signal_time" name="signal_time" %TIME_PASSING_CHECKED%>
+            <label style="display: none;" for="signal_time">Indicate passing of time (every hour)</label>
+
+            <input class="setting" type="checkbox" id="sound_react" name="sound_react" %SOUND_REACT_CHECKED%>
+            <label for="sound_react">React to sound (NOTE: when active, all modes and settings will be ignored)</label><br><br>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

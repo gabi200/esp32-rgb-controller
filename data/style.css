@@ -1,0 +1,74 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+h1,
+h3 {
+    color: #ffffff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.color-button {
+    width: 30%;
+    /* Slightly larger width */
+    aspect-ratio: 1 / 1;
+    /* Ensures square shape */
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.color-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.9em;
+    display: none;
+    /* Optional: Hide text for cleaner look */
+}
+
+.pattern-button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.9em;
+    display: none;
+    /* Optional: Hide text for cleaner look */
+}
+
+.setting {
+    transform: scale(2);
+    margin: 10px;
+}
+
+#static_btn {
+    background-color: #ffffff;
+    color: black;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .color-button {
+        width: 40%;
+        /* Larger buttons on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .color-button {
+        width: 60%;
+        /* Even larger for very small screens */
+    }
+}
