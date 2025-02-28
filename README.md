@@ -25,4 +25,4 @@ The ESP32 code is built on the Arduino framework.
 - 3 x IP41C NPN bipolar junction transistors
 - 12V power supply for the LED strip, 5V USB power supply for the devboard
 
-**Note: ** Please replace the corresponding placeholder strings with your 2.4GHz Wi-Fi SSID and password.
+**Note:** Please replace the corresponding placeholder strings with your 2.4GHz Wi-Fi SSID and password.
