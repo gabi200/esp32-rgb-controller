@@ -21,6 +21,7 @@ The ESP32 code is built on the Arduino framework.
 - ESP32 devboard
 - 12V RGB strip
 - PIR sensor module
+- photoresistor
 - INMP441 I2S microphone
 - 3 x TIP41C NPN bipolar junction transistors
 - 12V power supply for the LED strip, 5V USB power supply for the devboard
